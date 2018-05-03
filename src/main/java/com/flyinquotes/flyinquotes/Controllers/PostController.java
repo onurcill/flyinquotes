@@ -1,4 +1,4 @@
-package com.flyinquotes.controllers;
+package com.flyinquotes.flyinquotes.Controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PostController {
 	
-	@RequestMapping(value = "/")
-	public String index() {
-		return "hello world";
+	@RequestMapping("/")
+	String home() {
+		return "Hello World!";
 	}
-	
-	
 }
