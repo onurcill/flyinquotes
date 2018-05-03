@@ -3,7 +3,7 @@ package com.flyinquotes.flyinquotes.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping(PostController.TWITTER_BASE_URI)
-public class PostController {
+public class PostController{
 	
-	public static final String TWITTER_BASE_URI = "svc/v1/tweets";
+	public static final String TWITTER_BASE_URI = "twitter";
 	
 	@Autowired
 	private Twitter twitter;
-			
+	
+	@CrossOrigin(origins = "http://localhost:3000")		
 	@RequestMapping(value="{hashTag}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Tweet> getTweets(@PathVariable final String hashTag) {
 		List<Tweet> t = twitter.searchOperations().search(hashTag).getTweets();
@@ -30,5 +31,4 @@ public class PostController {
 		
 		return twitter.searchOperations().search(hashTag).getTweets();
 	}
-
 }
