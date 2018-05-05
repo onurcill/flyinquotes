@@ -5,6 +5,8 @@ import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flyinquotes.flyinquotes.Controllers.ITwitterController;
@@ -12,6 +14,7 @@ import com.flyinquotes.flyinquotes.Controllers.ITwitterController;
 import java.util.List;
 
 @RestController
+@RequestMapping(value="api", method=RequestMethod.POST)
 public class TwitterController implements ITwitterController{
 	
 	@Autowired
